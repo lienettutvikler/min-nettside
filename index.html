@@ -380,13 +380,13 @@
       gap: 0.5rem;
       font-size: 0.85rem;
       font-weight: 500;
-      color: rgba(255,255,255,0.6);
+      color: var(--color-muted);
     }
     .info-bar-item svg { color: var(--color-accent); flex-shrink: 0; }
     .info-bar-sep {
       width: 4px; height: 4px;
       border-radius: 50%;
-      background: #3a3a3a;
+      background: var(--color-border);
     }
     @media (max-width: 560px) {
       .info-bar-sep { display: none; }
@@ -690,69 +690,40 @@
     }
 
     .nav-wrap {
-      border: 1px solid #3f3f3f;
       width: fit-content;
-      border-radius: 500px;
       position: relative;
-      box-shadow: inset 10px 0 10px black;
-      background: linear-gradient(0deg, #141414, #242424);
+      background: none;
+      border: none;
+      box-shadow: none;
     }
-    .nav-wrap::after {
-      content: "";
-      display: block;
-      position: absolute;
-      inset: -5px;
-      background: linear-gradient(180deg, #3f3f3f, #212121);
-      border-radius: 500px;
-      z-index: -1;
-    }
+    .nav-wrap::after { display: none; }
 
     .nav-pill-track {
       position: relative;
       display: flex;
       align-items: center;
-      margin: 6.7px;
+      gap: 1.75rem;
     }
 
-    .nav-bubble {
-      position: absolute;
-      border-radius: 500px;
-      pointer-events: none;
-      top: 0;
-      bottom: 0;
-    }
-    .nav-bubble--active {
-      z-index: 2;
-      background: linear-gradient(180deg, #f2f2f2, #b3b3b3);
-      box-shadow: inset 0 2px 7px #fff;
-      transition: left 0.25s cubic-bezier(0.22,1,0.36,1), right 0.25s cubic-bezier(0.22,1,0.36,1), width 0.25s cubic-bezier(0.22,1,0.36,1);
-    }
-    .nav-bubble--hover {
-      z-index: 1;
-      background: linear-gradient(180deg, #3f3f3f, #212121);
-      box-shadow: inset 0 2px 7px #ffffff29;
-      opacity: 0;
-      transition: left 0.18s cubic-bezier(0.22,1,0.36,1), right 0.18s cubic-bezier(0.22,1,0.36,1), width 0.18s cubic-bezier(0.22,1,0.36,1), opacity 0.15s;
-    }
-    .nav-bubble--hover.is-visible { opacity: 1; }
+    .nav-bubble { display: none; }
 
     .nav-link {
       position: relative;
       z-index: 10;
       display: inline-block;
-      padding: 11px 28px;
-      color: #fff;
+      padding: 6px 0;
+      color: var(--color-muted);
       background: none;
       border: none;
       cursor: pointer;
       font-family: var(--font-sans);
-      font-size: 0.9rem;
-      font-weight: 400;
+      font-size: 0.88rem;
+      font-weight: 500;
       white-space: nowrap;
       transition: color 0.2s;
     }
-    .nav-link.active { color: #0f0f0f; }
-    .nav-link:not(.active):hover { color: #fff; }
+    .nav-link.active { color: var(--color-accent); font-weight: 600; }
+    .nav-link:not(.active):hover { color: var(--color-text); }
 
     /* ---- Right side ---- */
     .nav-right {
@@ -904,6 +875,13 @@
       overflow: hidden;
       position: relative;
       box-shadow: var(--shadow-card), var(--shadow-gold);
+    }
+
+    .hero-mockup--photo {
+      max-width: 640px;
+      background: transparent;
+      border: none;
+      box-shadow: none;
     }
 
     .mockup-bar {
@@ -1907,45 +1885,6 @@
     /* Custom cursor fjernet — standard OS-cursor brukes */
 
     /* =========================================================
-       MARQUEE STRIP
-    ========================================================= */
-    .marquee-strip {
-      overflow: hidden;
-      border-top: 1px solid var(--color-border);
-      border-bottom: 1px solid var(--color-border);
-      padding-block: 0.8rem;
-      background: var(--color-text);
-    }
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marqueeScroll 28s linear infinite;
-    }
-    .marquee-track:hover { animation-play-state: paused; }
-    @keyframes marqueeScroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    .marquee-item {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      padding-inline: 1.5rem;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      white-space: nowrap;
-    }
-    .marquee-sep {
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background: var(--color-accent);
-      flex-shrink: 0;
-    }
-
-    /* =========================================================
        AVAILABILITY BADGE
     ========================================================= */
     .availability-badge {
@@ -2436,11 +2375,7 @@
       <div class="container">
         <div class="hero-inner">
           <div class="hero-content">
-            <div class="availability-badge hero-eyebrow">
-              <span class="availability-dot"></span>
-              <span>Tilgjengelig for nye prosjekter</span>
-            </div>
-            <h1 class="hero-title">
+            <h1 class="hero-title" style="margin-bottom:0;">
               Nettsider som gir deg <em>kunder.</em><br>Ikke bare klikk.
             </h1>
             <p class="hero-sub">
@@ -2452,48 +2387,14 @@
             </div>
           </div>
           <div class="hero-visual" aria-hidden="true">
-            <div class="hero-mockup">
-              <img src="logo.png" alt="Lie Nettutvikler" style="width:60%; opacity:0.13; position:absolute; bottom:-10%; right:-5%; pointer-events:none;" />
-              <div style="padding: 2.5rem; position:relative; z-index:1;">
-                <div style="font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-accent); margin-bottom:1rem;">Eksempelprosjekt</div>
-                <div style="font-family:var(--font-serif); font-size:1.6rem; font-weight:600; margin-bottom:0.5rem; line-height:1.2;">Rask, pen<br>og konverterende</div>
-                <div style="font-size:0.88rem; color:var(--color-muted); margin-bottom:2rem;">Skreddersydd nettside levert på 5 dager.</div>
-                <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-                  <span style="padding:0.35rem 0.9rem; background:var(--color-accent-dim); border:1px solid var(--color-border); border-radius:100px; font-size:0.75rem; color:var(--color-accent);">✓ Mobiloptimalisert</span>
-                  <span style="padding:0.35rem 0.9rem; background:var(--color-accent-dim); border:1px solid var(--color-border); border-radius:100px; font-size:0.75rem; color:var(--color-accent);">✓ Lokal SEO</span>
-                  <span style="padding:0.35rem 0.9rem; background:var(--color-accent-dim); border:1px solid var(--color-border); border-radius:100px; font-size:0.75rem; color:var(--color-accent);">✓ Du eier alt</span>
-                </div>
-              </div>
+            <div class="hero-mockup hero-mockup--photo">
+              <img src="Header.jpeg" alt="Eksempel på nettside bygget av Lie Nettutvikler, vist på en bærbar PC" style="width:100%; height:100%; object-fit:contain;" />
             </div>
           </div>
         </div>
       </div>
     </section>
 
-
-    <!-- Marquee strip -->
-    <div class="marquee-strip" aria-hidden="true">
-      <div class="marquee-track">
-        <!-- Sett 1 -->
-        <span class="marquee-item">Skreddersydd design<span class="marquee-sep"></span></span>
-        <span class="marquee-item">Levert på 5 dager<span class="marquee-sep"></span></span>
-        <span class="marquee-item">Mobiloptimalisert<span class="marquee-sep"></span></span>
-        <span class="marquee-item">Lokal SEO<span class="marquee-sep"></span></span>
-        <span class="marquee-item">Ærlig pris<span class="marquee-sep"></span></span>
-        <span class="marquee-item">Ingen maler<span class="marquee-sep"></span></span>
-        <span class="marquee-item">Gratis startsamtale<span class="marquee-sep"></span></span>
-        <span class="marquee-item">Du eier alt fra dag én<span class="marquee-sep"></span></span>
-        <!-- Sett 2 (duplikat for sømløs loop) -->
-        <span class="marquee-item">Skreddersydd design<span class="marquee-sep"></span></span>
-        <span class="marquee-item">Levert på 5 dager<span class="marquee-sep"></span></span>
-        <span class="marquee-item">Mobiloptimalisert<span class="marquee-sep"></span></span>
-        <span class="marquee-item">Lokal SEO<span class="marquee-sep"></span></span>
-        <span class="marquee-item">Ærlig pris<span class="marquee-sep"></span></span>
-        <span class="marquee-item">Ingen maler<span class="marquee-sep"></span></span>
-        <span class="marquee-item">Gratis startsamtale<span class="marquee-sep"></span></span>
-        <span class="marquee-item">Du eier alt fra dag én<span class="marquee-sep"></span></span>
-      </div>
-    </div>
 
     <!-- Info bar -->
     <div class="info-bar" aria-label="Nøkkelpunkter">
@@ -2694,52 +2595,68 @@
             <div class="icon">🎨</div>
             <h3>Nettside Design &amp; Utvikling</h3>
             <p style="margin-top:0.75rem;">
-              Vi designer og bygger nettsiden fra bunnen av, skreddersydd til din bedrift og dine kunder. Ingen maler, ingen klipp-og-lim. Alt fra farger og typografi til interaksjoner er gjennomtenkt for å gi et profesjonelt og troverdig inntrykk.
+              Jeg designer og bygger nettsiden fra bunnen av — skreddersydd til din bedrift. Ingen maler, ingen klipp-og-lim. Alt fra farger og typografi til interaksjoner er gjennomtenkt.
             </p>
             <ul style="margin-top:1.25rem; display:flex; flex-direction:column; gap:0.5rem;">
               <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Skreddersydd design, aldri maler</li>
-              <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Ren, rask kode uten unødvendig bloat</li>
-              <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Levert på 7 dager</li>
+              <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Ren, rask kode</li>
+              <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Levert på 5–7 dager</li>
             </ul>
+            <div style="margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid var(--color-border-subtle); display:flex; align-items:baseline; gap:0.4rem;">
+              <span style="font-family:var(--font-serif); font-size:1.5rem; font-weight:600;">fra kr 2 500</span>
+              <span style="font-size:0.8rem; color:var(--color-muted);">— varierer etter antall sider og funksjoner</span>
+            </div>
           </div>
 
           <div class="tjeneste-card" data-reveal="up" style="transition-delay:0.1s;">
             <div class="icon">📱</div>
             <h3>Mobiloptimalisering &amp; Responsivt Design</h3>
             <p style="margin-top:0.75rem;">
-              Mer enn 7 av 10 besøkende bruker mobilen. Vi tester og optimaliserer nettsiden din på alle enheter og skjermstørrelser, slik at ingen potensielle kunder mister interessen fordi siden er vanskelig å bruke på telefonen.
+              Over 7 av 10 besøkende bruker mobil. Jeg tester og tilpasser siden din på alle enheter, slik at ingen potensielle kunder forlater siden fordi den er vanskelig å bruke.
             </p>
             <ul style="margin-top:1.25rem; display:flex; flex-direction:column; gap:0.5rem;">
               <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Testet på mobil, nettbrett og PC</li>
               <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Rask lastetid, under 2 sekunder</li>
               <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Touch-vennlig navigasjon</li>
             </ul>
+            <div style="margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid var(--color-border-subtle); display:flex; align-items:baseline; gap:0.4rem;">
+              <span style="font-family:var(--font-serif); font-size:1.5rem; font-weight:600;">Inkludert</span>
+              <span style="font-size:0.8rem; color:var(--color-muted);">— alltid en del av alle pakker</span>
+            </div>
           </div>
 
           <div class="tjeneste-card" data-reveal="up" style="transition-delay:0.15s;">
             <div class="icon">🔍</div>
             <h3>SEO-grunnpakke</h3>
             <p style="margin-top:0.75rem;">
-              Bli funnet lokalt på Google. Vi setter opp det tekniske fundamentet: riktige meta-tags, strukturerte data, rask lastetid og en sitemap, slik at Google forstår hvem du er og hva du tilbyr. Ikke en quick-fix, men et solid grunnlag.
+              Bli funnet lokalt på Google. Jeg setter opp det tekniske fundamentet: riktige meta-tags, strukturerte data, sitemap og Google-tilpasning. Ikke en quick-fix — et solid grunnlag.
             </p>
             <ul style="margin-top:1.25rem; display:flex; flex-direction:column; gap:0.5rem;">
               <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Titler, meta-beskrivelser og Open Graph</li>
-              <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Lokal SEO og Google-tilpasning</li>
+              <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Lokal SEO og Google Business</li>
               <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Automatisk sitemap og robots.txt</li>
             </ul>
+            <div style="margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid var(--color-border-subtle); display:flex; align-items:baseline; gap:0.4rem;">
+              <span style="font-family:var(--font-serif); font-size:1.5rem; font-weight:600;">fra kr 1 500</span>
+              <span style="font-size:0.8rem; color:var(--color-muted);">— eller inkludert i større pakker</span>
+            </div>
           </div>
 
           <div class="tjeneste-card" data-reveal="up" style="transition-delay:0.2s;">
             <div class="icon">🔧</div>
             <h3>Vedlikehold &amp; Oppdateringer</h3>
             <p style="margin-top:0.75rem;">
-              En nettside er ikke ferdig den dagen den lanseres. Vi tilbyr løpende vedlikehold: tekstoppdateringer, nye bilder, teknisk oppfølging og sikkerhetspatcher, slik at du alltid har en nettside som er aktuell og fungerer som den skal.
+              En nettside er ikke ferdig den dagen den lanseres. Jeg tilbyr løpende vedlikehold: tekstoppdateringer, nye bilder og teknisk oppfølging — slik at du alltid er oppdatert.
             </p>
             <ul style="margin-top:1.25rem; display:flex; flex-direction:column; gap:0.5rem;">
-              <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Raske oppdateringer uten lang ventetid</li>
+              <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Raske oppdateringer uten ventetid</li>
               <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Fleksible vedlikeholdsavtaler</li>
               <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Én kontaktperson du kjenner</li>
             </ul>
+            <div style="margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid var(--color-border-subtle); display:flex; align-items:baseline; gap:0.4rem;">
+              <span style="font-family:var(--font-serif); font-size:1.5rem; font-weight:600;">fra kr 500/mnd</span>
+              <span style="font-size:0.8rem; color:var(--color-muted);">— avtales individuelt</span>
+            </div>
           </div>
 
         </div>
@@ -2822,14 +2739,17 @@
     <section class="section" aria-labelledby="om-oss-heading">
       <div class="container">
         <div class="section-header" data-reveal="up" style="max-width:640px;">
-          <span class="label">Hvem er jeg</span>
-          <h2 id="om-oss-heading" style="margin-top:0.75rem;">Emilian Lie.<br>Én person, fullt fokus.</h2>
+          <span class="label">Du snakker direkte med meg</span>
+          <h2 id="om-oss-heading" style="margin-top:0.75rem;">Emilian Lie.<br>Ingen mellomledd.</h2>
         </div>
 
         <div class="om-oss-grid">
           <div class="om-oss-text" data-reveal="left">
             <p>
-              Jeg startet Lie Nettutvikler fordi jeg så for mange lokale bedrifter med et fantastisk tilbud, men en nettside som ikke representerte dem. Dyre byråer leverte generiske maler. Billige løsninger så det ut. Ingen av delene hjelper en klesbutikk i Drammen eller et rørleggerfirma i Stavanger.
+              Ikke et byrå med 40 ansatte og en prosjektleder du aldri møter. Bare meg — Emilian Lie, webutvikler og designer bak Lie Nettutvikler. Fullt fokusert på nettsiden din, fra første samtale til lansering.
+            </p>
+            <p>
+              Jeg startet Lie Nettutvikler fordi jeg så for mange lokale bedrifter med et fantastisk tilbud, men en nettside som ikke representerte dem. Dyre byråer leverte generiske maler. Billige løsninger så billig ut. Ingen av delene hjelper deg å vinne kunder.
             </p>
             <p>
               Du vet alltid hvem du snakker med. Det er meg, Emilian. Jeg er norsk, forstår norske bedrifter, og vet at tillit bygges over tid. Ikke med slipsknuter og presentasjoner i ti etasjer.
