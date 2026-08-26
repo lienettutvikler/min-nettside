@@ -844,13 +844,13 @@
     .hero::before {
       content: '';
       position: absolute;
-      top: -20%;
-      right: -10%;
-      width: 60vw;
-      height: 60vw;
-      max-width: 800px;
-      max-height: 800px;
-      background: radial-gradient(ellipse, rgba(10,172,202,0.08) 0%, transparent 70%);
+      top: -10%;
+      right: -5%;
+      width: 50vw;
+      height: 50vw;
+      max-width: 600px;
+      max-height: 600px;
+      background: radial-gradient(ellipse, rgba(10,172,202,0.05) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -1904,37 +1904,7 @@
     ::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 10px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
 
-    /* =========================================================
-       CUSTOM CURSOR (kun desktop)
-    ========================================================= */
-    @media (pointer: fine) {
-      body { cursor: none; }
-      a, button, [onclick], input, textarea, select, label { cursor: none; }
-    }
-    .cursor-dot {
-      width: 6px; height: 6px;
-      background: var(--color-accent);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      will-change: left, top;
-    }
-    .cursor-ring {
-      width: 28px; height: 28px;
-      border: 1.5px solid var(--color-accent);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      opacity: 0.5;
-      transition: width 0.25s var(--ease-out), height 0.25s var(--ease-out), opacity 0.25s, border-color 0.25s;
-      will-change: left, top;
-    }
-    .cursor-ring.hover { width: 44px; height: 44px; opacity: 0.85; border-color: var(--color-accent-light); }
-    .cursor-ring.click { width: 20px; height: 20px; opacity: 1; }
+    /* Custom cursor fjernet — standard OS-cursor brukes */
 
     /* =========================================================
        MARQUEE STRIP
@@ -2417,7 +2387,7 @@
       <!-- Logo -->
       <div class="nav-logo">
         <a href="#" onclick="showPage('forside'); return false;" aria-label="Lie Nettutvikler">
-          <img src="logo.svg.svg" alt="Lie Nettutvikler" style="height:58px; width:auto;" />
+          <img src="logo.png" alt="Lie Nettutvikler" style="height:48px; width:auto;" />
         </a>
       </div>
 
@@ -2483,23 +2453,16 @@
           </div>
           <div class="hero-visual" aria-hidden="true">
             <div class="hero-mockup">
-              <div class="mockup-bar">
-                <div class="mockup-dot"></div>
-                <div class="mockup-dot"></div>
-                <div class="mockup-dot"></div>
-              </div>
-              <div class="mockup-body">
-                <div class="mockup-line accent"></div>
-                <div class="mockup-line"></div>
-                <div class="mockup-line short"></div>
-                <div class="mockup-line xshort"></div>
-                <div class="mockup-grid">
-                  <div class="mockup-card"></div>
-                  <div class="mockup-card"></div>
-                  <div class="mockup-card"></div>
+              <img src="logo.png" alt="Lie Nettutvikler" style="width:60%; opacity:0.13; position:absolute; bottom:-10%; right:-5%; pointer-events:none;" />
+              <div style="padding: 2.5rem; position:relative; z-index:1;">
+                <div style="font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-accent); margin-bottom:1rem;">Eksempelprosjekt</div>
+                <div style="font-family:var(--font-serif); font-size:1.6rem; font-weight:600; margin-bottom:0.5rem; line-height:1.2;">Rask, pen<br>og konverterende</div>
+                <div style="font-size:0.88rem; color:var(--color-muted); margin-bottom:2rem;">Skreddersydd nettside levert på 5 dager.</div>
+                <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                  <span style="padding:0.35rem 0.9rem; background:var(--color-accent-dim); border:1px solid var(--color-border); border-radius:100px; font-size:0.75rem; color:var(--color-accent);">✓ Mobiloptimalisert</span>
+                  <span style="padding:0.35rem 0.9rem; background:var(--color-accent-dim); border:1px solid var(--color-border); border-radius:100px; font-size:0.75rem; color:var(--color-accent);">✓ Lokal SEO</span>
+                  <span style="padding:0.35rem 0.9rem; background:var(--color-accent-dim); border:1px solid var(--color-border); border-radius:100px; font-size:0.75rem; color:var(--color-accent);">✓ Du eier alt</span>
                 </div>
-                <div class="mockup-line short"></div>
-                <div class="mockup-line xshort"></div>
               </div>
             </div>
           </div>
