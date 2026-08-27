@@ -361,10 +361,9 @@
        INFO BAR
     ========================================================= */
     .info-bar {
-      background: #111111;
-      border-top: 1px solid #2a2a2a;
-      border-bottom: 1px solid #2a2a2a;
-      background: var(--color-surface);
+      background: var(--color-accent-dim);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
       padding-block: 0.9rem;
     }
     .info-bar-inner {
@@ -1020,7 +1019,7 @@
        CTA BANNER
     ========================================================= */
     .cta-banner {
-      background: linear-gradient(135deg, var(--color-surface) 0%, #DFF0F5 100%);
+      background: linear-gradient(135deg, #0F1923 0%, #0A5A6B 65%, #0AACCA 130%);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
       padding: clamp(2.5rem, 6vw, 4.5rem);
@@ -1035,11 +1034,16 @@
       left: 50%;
       transform: translate(-50%,-50%);
       width: 600px; height: 600px;
-      background: radial-gradient(ellipse, rgba(10,172,202,0.07) 0%, transparent 60%);
+      background: radial-gradient(ellipse, rgba(255,255,255,0.1) 0%, transparent 60%);
       pointer-events: none;
     }
-    .cta-banner h2 { margin-bottom: 1rem; }
-    .cta-banner p { color: var(--color-muted); margin-bottom: 2rem; font-size: 1.05rem; }
+    .cta-banner .label { color: rgba(255,255,255,0.7); }
+    .cta-banner h2 { margin-bottom: 1rem; color: #fff; }
+    .cta-banner p { color: rgba(255,255,255,0.78); margin-bottom: 2rem; font-size: 1.05rem; }
+    .cta-banner .btn-outline { color: #fff; border-color: rgba(255,255,255,0.35); }
+    .cta-banner .btn-outline:hover { color: #fff; border-color: #fff; background: rgba(255,255,255,0.08); }
+    .cta-banner .btn-primary { background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.3); }
+    .cta-banner .btn-primary:hover { background: rgba(255,255,255,0.18); border-color: #fff; color: #fff; }
 
     /* =========================================================
        TJENESTER PAGE
@@ -1201,7 +1205,7 @@
     }
 
     .prosess-strip {
-      background: var(--color-surface);
+      background: linear-gradient(135deg, var(--color-accent-dim) 0%, var(--color-surface) 70%);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
       padding: 2.5rem;
@@ -1230,17 +1234,18 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: var(--color-accent-dim);
-      border: 1px solid var(--color-border);
+      background: var(--color-accent);
+      border: 1px solid var(--color-accent);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--font-mono);
       font-size: 0.8rem;
-      color: var(--color-accent);
+      color: #fff;
       margin: 0 auto 1rem;
       position: relative;
       z-index: 1;
+      box-shadow: 0 4px 14px rgba(10,172,202,0.35);
     }
     .prosess-step h4 { font-size: 1rem; margin-bottom: 0.3rem; }
     .prosess-step p { font-size: 0.82rem; color: var(--color-muted); }
@@ -2379,7 +2384,7 @@
               Nettsider som gir deg <em>kunder.</em><br>Ikke bare klikk.
             </h1>
             <p class="hero-sub">
-              Vi bygger skreddersydde nettsider for lokale bedrifter som vil bli funnet, fremstå profesjonelt, bli valgt, uten å bruke formue på det.
+              Jeg bygger skreddersydde nettsider for lokale bedrifter som vil bli funnet, fremstå profesjonelt, bli valgt, uten å bruke formue på det.
             </p>
             <div class="hero-actions">
               <button class="btn btn-solid" style="color:#000;" onclick="showPage('konfiguratoren')">Bygg din side <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" style="transform:rotate(-90deg);flex-shrink:0;" aria-hidden="true"><path d="M19.9201 8.9502L13.4001 15.4702C12.6301 16.2402 11.3701 16.2402 10.6001 15.4702L4.08008 8.9502" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -2402,7 +2407,7 @@
         <div class="info-bar-inner">
           <span class="info-bar-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 2L4.09344 12.6879C3.74463 13.1064 3.57023 13.3157 3.56756 13.4925C3.56524 13.6461 3.63372 13.7923 3.75324 13.8889C3.89073 14 4.16215 14 4.70498 14H12L11 22L19.9066 11.3121C20.2554 10.8936 20.4298 10.6843 20.4324 10.5075C20.4348 10.3539 20.3663 10.2077 20.2468 10.1111C20.1093 10 19.8379 10 19.295 10H12L13 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            5 dager leveringstid
+            5–7 dager leveringstid
           </span>
           <span class="info-bar-sep"></span>
           <span class="info-bar-item">
@@ -2438,14 +2443,14 @@
             <!-- Nested feature boxes -->
             <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0.6rem; margin-bottom:1.5rem;">
               <div class="bento-inner-box">
-                <div style="font-size:1.1rem; margin-bottom:0.3rem;">🤝</div>
-                <strong style="font-size:0.82rem;">Ærlig kommunikasjon</strong>
-                <p style="font-size:0.75rem; color:var(--color-muted); margin-top:0.2rem;">Ingen teknisk sjargong</p>
+                <div style="font-size:1.1rem; margin-bottom:0.3rem;">📈</div>
+                <strong style="font-size:0.82rem;">Vinner kunder</strong>
+                <p style="font-size:0.75rem; color:var(--color-muted); margin-top:0.2rem;">Bygget for å konvertere</p>
               </div>
               <div class="bento-inner-box">
                 <div style="font-size:1.1rem; margin-bottom:0.3rem;">⚡</div>
                 <strong style="font-size:0.82rem;">Rask levering</strong>
-                <p style="font-size:0.75rem; color:var(--color-muted); margin-top:0.2rem;">Ferdig på 5 dager</p>
+                <p style="font-size:0.75rem; color:var(--color-muted); margin-top:0.2rem;">Ferdig på 5–7 dager</p>
               </div>
               <div class="bento-inner-box">
                 <div style="font-size:1.1rem; margin-bottom:0.3rem;">📱</div>
@@ -2459,7 +2464,7 @@
           <!-- Aksent-kort: Leveringstid -->
           <div class="bento-card bento-accent" data-reveal="up" style="display:flex; flex-direction:column; justify-content:space-between;">
             <div>
-              <p style="font-family:var(--font-serif); font-size:4.5rem; font-weight:600; color:#fff; line-height:1;">5</p>
+              <p style="font-family:var(--font-serif); font-size:3.4rem; font-weight:600; color:#fff; line-height:1;">5–7</p>
               <p style="color:rgba(255,255,255,0.9); font-size:1rem; font-weight:500; margin-top:0.25rem;">dager leveringstid</p>
               <p style="color:rgba(255,255,255,0.65); font-size:0.82rem; margin-top:0.5rem; line-height:1.6;">Fra idé til ferdig nettside på én arbeidsuke.</p>
             </div>
@@ -2517,7 +2522,7 @@
           <p>Konfigurer siden din på under 5 minutter. Jeg tar kontakt innen 24 timer.</p>
           <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
             <button class="btn btn-primary" onclick="showPage('konfiguratoren')">Bygg din side <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" style="transform:rotate(-90deg);flex-shrink:0;" aria-hidden="true"><path d="M19.9201 8.9502L13.4001 15.4702C12.6301 16.2402 11.3701 16.2402 10.6001 15.4702L4.08008 8.9502" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <button class="btn btn-outline" onclick="showPage('kontakt')">Kontakt oss direkte</button>
+            <button class="btn btn-outline" onclick="showPage('kontakt')">Kontakt meg direkte</button>
           </div>
         </div>
       </div>
@@ -2533,10 +2538,10 @@
     <section class="section" aria-labelledby="tjenester-heading">
       <div class="container">
         <div class="section-header" data-reveal="up">
-          <span class="label">Hva vi tilbyr</span>
+          <span class="label">Hva jeg tilbyr</span>
           <h2 id="tjenester-heading" style="margin-top:0.75rem; margin-bottom:1.25rem;">Tjenester laget for<br>lokale bedrifter</h2>
           <p class="tjenester-ingress">
-            Vi fokuserer på det som faktisk betyr noe for din bedrift: å se profesjonell ut, bli funnet av riktige kunder og ha en nettside som virker på alle enheter, hele tiden.
+            Jeg fokuserer på det som faktisk betyr noe for din bedrift: å se profesjonell ut, bli funnet av riktige kunder og ha en nettside som virker på alle enheter, hele tiden.
             Ingen unødvendige abonnementer. Ingen overraskelser på fakturaen.
           </p>
         </div>
@@ -2570,11 +2575,11 @@
               </button>
               <button class="nav-search-option" role="option" onclick="velgTjeneste('oppgradering')">
                 <span class="nso-icon">⚡</span>
-                <span><span>Oppgradering av side</span><span class="nso-desc">Gjør eksisterende nettside raskere og bedre</span></span>
+                <span><span>Oppgradering av side</span><span class="nso-desc">Teknisk: fart, mobil, sikkerhet</span></span>
               </button>
               <button class="nav-search-option" role="option" onclick="velgTjeneste('redesign')">
                 <span class="nso-icon">✏️</span>
-                <span><span>Redesign</span><span class="nso-desc">Nytt utseende, same innhold</span></span>
+                <span><span>Redesign</span><span class="nso-desc">Visuelt: nytt utseende, behold innhold</span></span>
               </button>
               <div class="nav-search-divider"></div>
               <button class="nav-search-option" role="option" onclick="velgTjeneste('vedlikehold')">
@@ -2603,7 +2608,7 @@
               <li style="display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--color-muted);"><span style="color:var(--color-accent);">✓</span> Levert på 5–7 dager</li>
             </ul>
             <div style="margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid var(--color-border-subtle); display:flex; align-items:baseline; gap:0.4rem;">
-              <span style="font-family:var(--font-serif); font-size:1.5rem; font-weight:600;">fra kr 2 500</span>
+              <span style="font-family:var(--font-serif); font-size:1.5rem; font-weight:600;">fra kr 2 000</span>
               <span style="font-size:0.8rem; color:var(--color-muted);">— varierer etter antall sider og funksjoner</span>
             </div>
           </div>
@@ -2691,7 +2696,7 @@
               <span>Hvor lang tid tar det å lage nettsiden?</span>
               <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19.9201 8.9502L13.4001 15.4702C12.6301 16.2402 11.3701 16.2402 10.6001 15.4702L4.08008 8.9502" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
-            <div class="faq-answer"><div class="faq-answer-inner">Jeg leverer ferdige nettsider på 7 dager fra vi har blitt enige om innhold og design. Trenger du det raskere, tar vi en prat om det.</div></div>
+            <div class="faq-answer"><div class="faq-answer-inner">Jeg leverer ferdige nettsider på 5–7 dager fra vi har blitt enige om innhold og design. Trenger du det raskere, ta en prat med meg om det.</div></div>
           </div>
 
           <div class="faq-item" data-reveal="up">
@@ -2699,7 +2704,7 @@
               <span>Trenger jeg å levere tekst og bilder selv?</span>
               <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19.9201 8.9502L13.4001 15.4702C12.6301 16.2402 11.3701 16.2402 10.6001 15.4702L4.08008 8.9502" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
-            <div class="faq-answer"><div class="faq-answer-inner">Helst ja, siden du kjenner bedriften din best. Har du ikke bilder, bruker vi kvalitetsbilder som passer din bransje. Trenger du hjelp med teksten, kan vi ta det som en del av oppdraget.</div></div>
+            <div class="faq-answer"><div class="faq-answer-inner">Helst ja, siden du kjenner bedriften din best. Har du ikke bilder, bruker jeg kvalitetsbilder som passer din bransje. Trenger du hjelp med teksten, kan jeg ta det som en del av oppdraget.</div></div>
           </div>
 
           <div class="faq-item" data-reveal="up">
@@ -2715,7 +2720,7 @@
               <span>Kan jeg oppdatere nettsiden selv?</span>
               <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19.9201 8.9502L13.4001 15.4702C12.6301 16.2402 11.3701 16.2402 10.6001 15.4702L4.08008 8.9502" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
-            <div class="faq-answer"><div class="faq-answer-inner">Det kommer an på løsningen vi velger for deg. Ønsker du å redigere innhold selv, setter vi opp et enkelt system for det. Ellers sender du meg en melding, og jeg ordner det raskt.</div></div>
+            <div class="faq-answer"><div class="faq-answer-inner">Det kommer an på løsningen jeg setter opp for deg. Ønsker du å redigere innhold selv, setter jeg opp et enkelt system for det. Ellers sender du meg en melding, og jeg ordner det raskt.</div></div>
           </div>
 
           <div class="faq-item" data-reveal="up">
@@ -2723,7 +2728,7 @@
               <span>Trenger jeg domene og hosting?</span>
               <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19.9201 8.9502L13.4001 15.4702C12.6301 16.2402 11.3701 16.2402 10.6001 15.4702L4.08008 8.9502" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
-            <div class="faq-answer"><div class="faq-answer-inner">Ja, men jeg hjelper deg sette det opp. Et domene koster vanligvis rundt kr 150–200 i året, og hosting fra kr 500–1 000 i året avhengig av leverandør. Vi finner den beste løsningen sammen.</div></div>
+            <div class="faq-answer"><div class="faq-answer-inner">Ja, men jeg hjelper deg sette det opp. Et domene koster vanligvis rundt kr 150–200 i året, og hosting fra kr 500–1 000 i året avhengig av leverandør. Jeg finner den beste løsningen sammen med deg.</div></div>
           </div>
 
         </div>
@@ -2792,22 +2797,22 @@
             <div class="prosess-step">
               <div class="prosess-num">01</div>
               <h4>Prat</h4>
-              <p>Vi tar en uformell prat om bedriften din, målene dine og hva du trenger av en nettside.</p>
+              <p>Jeg tar en uformell prat om bedriften din, målene dine og hva du trenger av en nettside.</p>
             </div>
             <div class="prosess-step">
               <div class="prosess-num">02</div>
               <h4>Plan</h4>
-              <p>Vi lager et konkret forslag med design, innhold og pris. Ingen overraskelser.</p>
+              <p>Jeg lager et konkret forslag med design, innhold og pris. Ingen overraskelser.</p>
             </div>
             <div class="prosess-step">
               <div class="prosess-num">03</div>
               <h4>Bygg</h4>
-              <p>Vi bygger nettsiden og viser deg løpende fremdrift. Du godkjenner før vi går videre.</p>
+              <p>Jeg bygger nettsiden og viser deg løpende fremdrift. Du godkjenner før jeg går videre.</p>
             </div>
             <div class="prosess-step">
               <div class="prosess-num">04</div>
               <h4>Lever</h4>
-              <p>Nettsiden lanseres og vi gir deg en kort opplæring. Du er aldri alene etter levering.</p>
+              <p>Nettsiden lanseres og jeg gir deg en kort opplæring. Du er aldri alene etter levering.</p>
             </div>
           </div>
         </div>
@@ -2826,7 +2831,7 @@
         <div class="section-header" data-reveal="up" style="max-width:560px;">
           <span class="label">Ta kontakt</span>
           <h2 id="kontakt-heading" style="margin-top:0.75rem;">La oss snakke om nettsiden din.</h2>
-          <p class="text-muted" style="margin-top:1rem;">Vi svarer vanligvis innen noen timer på hverdager. Første prat er alltid gratis og uforpliktende.</p>
+          <p class="text-muted" style="margin-top:1rem;">Jeg svarer vanligvis innen noen timer på hverdager. Første prat er alltid gratis og uforpliktende.</p>
         </div>
 
         <div class="kontakt-grid">
@@ -2877,11 +2882,11 @@
               </div>
               <div class="form-group">
                 <label for="k-melding">Melding</label>
-                <textarea id="k-melding" name="message" placeholder="Fortell oss litt om hva du trenger..." required></textarea>
+                <textarea id="k-melding" name="message" placeholder="Fortell meg litt om hva du trenger..." required></textarea>
               </div>
               <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send melding <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" style="transform:rotate(-90deg);flex-shrink:0;" aria-hidden="true"><path d="M19.9201 8.9502L13.4001 15.4702C12.6301 16.2402 11.3701 16.2402 10.6001 15.4702L4.08008 8.9502" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
               <div class="success-msg" id="kontaktSuccess" role="alert">
-                Takk for meldingen! Vi tar kontakt innen 24 timer. 🎉
+                Takk for meldingen! Jeg tar kontakt innen 24 timer. 🎉
               </div>
             </form>
           </div>
@@ -2901,7 +2906,7 @@
         <div class="konfig-header" data-reveal="up">
           <span class="label">Side-konfiguratoren</span>
           <h2 id="konfig-heading" style="margin-top:0.75rem; margin-bottom:0.75rem;">Bygg din side</h2>
-          <p class="text-muted">Svar på 6 enkle spørsmål, så vet vi nøyaktig hva du trenger og hva det koster.</p>
+          <p class="text-muted">Svar på 6 enkle spørsmål, så vet jeg nøyaktig hva du trenger og hva det koster.</p>
         </div>
 
         <!-- Stepper -->
@@ -2937,8 +2942,8 @@
 
           <!-- STEG 1 -->
           <div class="konfig-step active fade-slide" id="konfig-step-1">
-            <p class="konfig-step-title">Fortell oss om bedriften din</p>
-            <p class="konfig-step-sub">Jo mer vi vet, desto bedre kan vi hjelpe deg.</p>
+            <p class="konfig-step-title">Fortell meg om bedriften din</p>
+            <p class="konfig-step-sub">Jo mer jeg vet, desto bedre kan jeg hjelpe deg.</p>
 
             <div class="form-group">
               <label for="kf-firma">Firmanavn</label>
@@ -2957,7 +2962,7 @@
           <!-- STEG 2 -->
           <div class="konfig-step" id="konfig-step-2">
             <p class="konfig-step-title">Farge og utseende</p>
-            <p class="konfig-step-sub">Velg farger som representerer merkevaren din, så tilpasser vi resten.</p>
+            <p class="konfig-step-sub">Velg farger som representerer merkevaren din, så tilpasser jeg resten.</p>
 
             <div class="steg2-layout">
               <div>
@@ -3150,7 +3155,7 @@
           <!-- STEG 5 -->
           <div class="konfig-step" id="konfig-step-5">
             <p class="konfig-step-title">Innhold og materiale</p>
-            <p class="konfig-step-sub">Fortell oss hva du har klart og hva vi kan hjelpe deg med å skaffe.</p>
+            <p class="konfig-step-sub">Fortell meg hva du har klart og hva jeg kan hjelpe deg med å skaffe.</p>
 
             <!-- Bilder -->
             <div class="innhold-section">
@@ -3170,7 +3175,7 @@
                   <div class="innhold-radio"></div>
                   <div class="innhold-option-text">
                     <strong>Bruk gratis stockbilder</strong>
-                    <span>Vi velger passende bilder fra Unsplash eller Pexels for deg</span>
+                    <span>Jeg velger passende bilder fra Unsplash eller Pexels for deg</span>
                   </div>
                   <span class="tillegg-price">+ kr 300</span>
                 </label>
@@ -3179,7 +3184,7 @@
                   <div class="innhold-radio"></div>
                   <div class="innhold-option-text">
                     <strong>En blanding</strong>
-                    <span>Noen egne bilder, resten fyller vi med stockbilder</span>
+                    <span>Noen egne bilder, resten fyller jeg med stockbilder</span>
                   </div>
                   <span class="tillegg-price">+ kr 150</span>
                 </label>
@@ -3204,7 +3209,7 @@
                   <div class="innhold-radio"></div>
                   <div class="innhold-option-text">
                     <strong>Jeg trenger hjelp med teksten</strong>
-                    <span>Vi hjelper til med å skrive og redigere basert på det du forteller oss</span>
+                    <span>Jeg hjelper til med å skrive og redigere basert på det du forteller meg</span>
                   </div>
                   <span class="tillegg-price">+ kr 500</span>
                 </label>
@@ -3213,7 +3218,7 @@
                   <div class="innhold-radio"></div>
                   <div class="innhold-option-text">
                     <strong>Jeg har en eksisterende nettside</strong>
-                    <span>Vi henter innhold fra siden du allerede har</span>
+                    <span>Jeg henter innhold fra siden du allerede har</span>
                   </div>
                   <span class="tillegg-price">Inkludert</span>
                 </label>
@@ -3229,7 +3234,7 @@
                   <div class="innhold-radio"></div>
                   <div class="innhold-option-text">
                     <strong>Jeg har en logo</strong>
-                    <span>Du sender oss logofil (PNG, SVG eller lignende)</span>
+                    <span>Du sender meg logofil (PNG, SVG eller lignende)</span>
                   </div>
                 </label>
                 <label class="innhold-option" onclick="selectInnhold(this,'logo')">
@@ -3237,7 +3242,7 @@
                   <div class="innhold-radio"></div>
                   <div class="innhold-option-text">
                     <strong>Jeg trenger logo</strong>
-                    <span>Vi designer en enkel logo, legg til logodesign i tilleggsfunksjoner</span>
+                    <span>Jeg designer en enkel logo, legg til logodesign i tilleggsfunksjoner</span>
                   </div>
                 </label>
                 <label class="innhold-option" onclick="selectInnhold(this,'logo')">
@@ -3245,7 +3250,7 @@
                   <div class="innhold-radio"></div>
                   <div class="innhold-option-text">
                     <strong>Bruk tekst-logo midlertidig</strong>
-                    <span>Vi bruker bedriftsnavnet som logo til du har en klar</span>
+                    <span>Jeg bruker bedriftsnavnet som logo til du har en klar</span>
                   </div>
                 </label>
               </div>
@@ -3268,7 +3273,7 @@
           <!-- STEG 6 -->
           <div class="konfig-step" id="konfig-step-6">
             <p class="konfig-step-title">Din kontaktinfo &amp; sammendrag</p>
-            <p class="konfig-step-sub">Fyll inn kontaktinformasjonen din, sjekk sammendraget og send til oss.</p>
+            <p class="konfig-step-sub">Fyll inn kontaktinformasjonen din, sjekk sammendraget og send til meg.</p>
 
             <div class="steg5-layout">
               <div>
@@ -3290,7 +3295,7 @@
                   </div>
                   <div class="form-group">
                     <label for="kf-notater">Ekstra ønsker eller notater</label>
-                    <textarea id="kf-notater" name="notater" placeholder="Er det noe spesielt du vil at vi skal vite?" style="min-height:80px;"></textarea>
+                    <textarea id="kf-notater" name="notater" placeholder="Er det noe spesielt du vil at jeg skal vite?" style="min-height:80px;"></textarea>
                   </div>
                   <label class="gratis-prat-label">
                     <input type="checkbox" id="kf-gratis-prat" name="gratis_prat" value="Ja" />
@@ -3322,8 +3327,8 @@
 
             <div class="konfig-success" id="konfigurasjonSuccess" role="alert">
               <div class="success-icon">🎉</div>
-              <h3 id="suksessTittel">Takk! Vi tar kontakt snart.</h3>
-              <p id="suksessInnhold">Vi har mottatt konfigurasjonen din og tar kontakt innen 24 timer.</p>
+              <h3 id="suksessTittel">Takk! Jeg tar kontakt snart.</h3>
+              <p id="suksessInnhold">Jeg har mottatt konfigurasjonen din og tar kontakt innen 24 timer.</p>
             </div>
           </div>
 
@@ -3440,9 +3445,13 @@
           <span class="label">Tjeneste</span>
           <div class="divider" style="margin-top:1rem;"></div>
           <h1 style="margin-bottom:1.25rem;">Oppgradering av nettside</h1>
-          <p style="font-size:1.1rem; color:var(--color-muted); line-height:1.8; margin-bottom:2.5rem;">
+          <p style="font-size:1.1rem; color:var(--color-muted); line-height:1.8; margin-bottom:1.5rem;">
             Har du en nettside som ikke lenger gjør jobben? Jeg tar den eksisterende siden din og løfter den, uten at du mister innhold, kunder eller historikk. Raskere, penere og klar for mobil.
           </p>
+          <div style="display:flex; align-items:center; gap:0.6rem; padding:0.9rem 1.1rem; background:var(--color-accent-dim); border:1px solid var(--color-border); border-radius:var(--radius-md); margin-bottom:2.5rem; font-size:0.88rem; color:var(--color-muted);">
+            <span style="flex-shrink:0;">⚡ Teknisk problem?</span>
+            <span>Oppgradering er riktig valg. Vil du heller ha et nytt <em>utseende</em> og beholde innholdet? Se <a href="#" onclick="showPage('redesign'); return false;" style="color:var(--color-accent); font-weight:600;">Redesign</a> i stedet.</span>
+          </div>
           <div class="grid-2" style="margin-bottom:3rem; gap:1.25rem;">
             <div class="card" style="padding:1.5rem;">
               <div class="service-icon">⚡</div>
@@ -3599,13 +3608,17 @@
           <span class="label">Tjeneste</span>
           <div class="divider" style="margin-top:1rem;"></div>
           <h1 style="margin-bottom:1.25rem;">Redesign</h1>
-          <p style="font-size:1.1rem; color:var(--color-muted); line-height:1.8; margin-bottom:2.5rem;">
+          <p style="font-size:1.1rem; color:var(--color-muted); line-height:1.8; margin-bottom:1.5rem;">
             Innholdet er bra, men siden ser ikke ut som bedriften din fortjener? Jeg beholder det som fungerer og gir nettsiden din et helt nytt utseende som du er stolt av å vise frem.
           </p>
+          <div style="display:flex; align-items:center; gap:0.6rem; padding:0.9rem 1.1rem; background:var(--color-accent-dim); border:1px solid var(--color-border); border-radius:var(--radius-md); margin-bottom:2.5rem; font-size:0.88rem; color:var(--color-muted);">
+            <span style="flex-shrink:0;">🎨 Visuelt problem?</span>
+            <span>Redesign er riktig valg. Er problemet heller <em>fart eller funksjon</em>? Se <a href="#" onclick="showPage('oppgradering'); return false;" style="color:var(--color-accent); font-weight:600;">Oppgradering</a> i stedet.</span>
+          </div>
           <div style="background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:2rem; margin-bottom:1.5rem; text-align:center;">
             <p style="font-size:.85rem; font-family:var(--font-mono); letter-spacing:.1em; text-transform:uppercase; color:var(--color-muted); margin-bottom:.5rem;">Pris</p>
             <p style="font-family:var(--font-serif); font-size:2.2rem; font-weight:600; color:var(--color-accent); margin-bottom:.5rem;">Fra kr 2 000</p>
-            <p style="color:var(--color-muted); font-size:.9rem;">Avhenger av antall sider og kompleksitet. Levert innen 7 dager.</p>
+            <p style="color:var(--color-muted); font-size:.9rem;">Avhenger av antall sider og kompleksitet. Levert innen 5–7 dager.</p>
           </div>
           <div style="background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem;">
             <h3 style="margin-bottom:1.5rem;">Hva inngår i et redesign?</h3>
@@ -3624,7 +3637,7 @@
               </div>
               <div style="display:flex; gap:1rem; align-items:flex-start;">
                 <div style="width:32px; height:32px; border-radius:8px; background:var(--color-accent-dim); border:1px solid var(--color-border); display:flex; align-items:center; justify-content:center; flex-shrink:0;">✦</div>
-                <div><strong>Levert innen 7 dager</strong><br><span style="font-size:.9rem; color:var(--color-muted);">Rask prosess, du er involvert underveis</span></div>
+                <div><strong>Levert innen 5–7 dager</strong><br><span style="font-size:.9rem; color:var(--color-muted);">Rask prosess, du er involvert underveis</span></div>
               </div>
             </div>
           </div>
@@ -3778,11 +3791,11 @@
           </div>
           <div style="background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem; text-align:center;">
             <p style="font-size:.85rem; font-family:var(--font-mono); letter-spacing:.1em; text-transform:uppercase; color:var(--color-muted); margin-bottom:.5rem;">Pris</p>
-            <p style="font-family:var(--font-serif); font-size:2.2rem; font-weight:600; color:var(--color-accent); margin-bottom:.5rem;">kr 1 000 / mnd</p>
+            <p style="font-family:var(--font-serif); font-size:2.2rem; font-weight:600; color:var(--color-accent); margin-bottom:.5rem;">fra kr 500 / mnd</p>
             <p style="color:var(--color-muted); font-size:.9rem;">Fast månedspris. Ta kontakt for et uforpliktende tilbud.</p>
           </div>
           <div style="background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:2rem;">
-            <h3 style="margin-bottom:0.4rem;">Fortell oss om prosjektet ditt</h3>
+            <h3 style="margin-bottom:0.4rem;">Fortell meg om prosjektet ditt</h3>
             <p style="color:var(--color-muted); font-size:.9rem; margin-bottom:1.75rem;">Fyll ut det du vet, så tar jeg kontakt for en gratis og uforpliktende prat.</p>
             <form onsubmit="sendTjenesteForm(event, this)" novalidate>
               <input type="hidden" name="access_key" value="a48b3bd0-ad4d-478c-aff1-a8c5809fe99f" />
@@ -3875,7 +3888,7 @@
             <p style="color:var(--color-muted); font-size:.9rem;">Engangspris for grunnleggende oppsett. Ta kontakt for skreddersydd tilbud.</p>
           </div>
           <div style="background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:2rem;">
-            <h3 style="margin-bottom:0.4rem;">Fortell oss om prosjektet ditt</h3>
+            <h3 style="margin-bottom:0.4rem;">Fortell meg om prosjektet ditt</h3>
             <p style="color:var(--color-muted); font-size:.9rem; margin-bottom:1.75rem;">Fyll ut det du vet, så tar jeg kontakt for en gratis og uforpliktende prat.</p>
             <form onsubmit="sendTjenesteForm(event, this)" novalidate>
               <input type="hidden" name="access_key" value="a48b3bd0-ad4d-478c-aff1-a8c5809fe99f" />
@@ -4511,8 +4524,8 @@ ESTIMERT TOTAL: ${totalEl}
         if (json.success) {
           form.style.display = 'none';
           const success = document.getElementById('konfigurasjonSuccess');
-          document.getElementById('suksessTittel').textContent = `Takk, ${fornavn}! Vi tar kontakt snart. 🎉`;
-          document.getElementById('suksessInnhold').textContent = 'Vi har mottatt side-konfigurasjonen din og tar kontakt med deg innen 24 timer.';
+          document.getElementById('suksessTittel').textContent = `Takk, ${fornavn}! Jeg tar kontakt snart. 🎉`;
+          document.getElementById('suksessInnhold').textContent = 'Jeg har mottatt side-konfigurasjonen din og tar kontakt med deg innen 24 timer.';
           success.classList.add('show');
         } else {
           btn.textContent = 'Noe gikk galt. Prøv igjen.';
